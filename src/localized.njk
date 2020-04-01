@@ -5,7 +5,7 @@ pagination:
     data: news
     size: 1
     alias: news
-permalink: /{{ news.country}}/index.html
+permalink: /{{ news.country }}/index.html
 ---
 
 <div class="container">
@@ -13,16 +13,29 @@ permalink: /{{ news.country}}/index.html
     <div class="vibe">you are great!</div>
     <div class="love">
     ❤️
-</div>
+    </div>
+
+    <div id="weather" class="hidden">
+        <h2>Weather Near You</h2>
+        <p id="city"></p>
+        <p id="temp"></p>
+        <p id="main"></p>
+        <p id="desc"></p>
+    </div>
+
+
+    <h2>News in Your Country</h2>
     <ul>
         {% for article in news.articles %}
             <li>
                 <h2>
                     <a href="{{ article.url}}">{{ article.title }}</a>
                 </h2>
-                <span>{{ article.source.name}} - <time>{{article.publishedAt }}</time></span>
+                <span>{{ article.source.name}} - <time>{{article.publishedAt }}</time>
+                </span>
             </li>
         {% endfor %}
     </ul>
 </div>
 <script src='/js/vibe.js'></script>
+<script src='/js/weather.js'></script>
